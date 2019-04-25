@@ -10,3 +10,9 @@ RUN time emerge -v \
     --autounmask-write=y \
     --autounmask-continue=y \
     dev-embedded/arduino
+
+RUN useradd -m arduino
+USER arduino
+ENV HOME /home/ardiono
+WORKDIR /home/arduino
+ENTRYPOINT ["/usr/bin/arduino"]
